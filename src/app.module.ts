@@ -5,7 +5,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { MathService } from './math.service';
 
 @Module({
-  imports: [],//MongooseModule.forRoot('mongodb://localhost/nest')
+  imports: [MongooseModule.forRoot('mongodb://localhost:27017/formsDb')],
   controllers: [AppController],
   providers: [AppService, MathService],
 })

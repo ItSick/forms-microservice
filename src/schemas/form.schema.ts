@@ -5,31 +5,31 @@ export type FormDocument = Form & Document;
 
 @Schema()
 export class Form {
-  @Prop()
-  id: string;
+  // @Prop()
+  // id: string;
 
-  @Prop()
+  @Prop({ required: true })
   name: string;
 
-  @Prop()
+  @Prop({ required: true })
   version: number;
 
-  @Prop()
+  @Prop({ required: true })
   steps: number;
 
-  @Prop()
+  @Prop({ required: true })
   variant: string;
 
   @Prop()
   hostingApps: [];
 
-  @Prop()
+  @Prop({ required: true })
   createdBy: string;
 
-  @Prop()
+  @Prop({ required: true })
   updateBy: string;
   
-  @Prop()
+  @Prop({ required: true })
   createDate: Date;
 
   @Prop()

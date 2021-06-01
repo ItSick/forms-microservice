@@ -1,7 +1,6 @@
 import { Document } from 'mongoose';
 export declare type FormDocument = Form & Document;
 export declare class Form {
-    id: string;
     name: string;
     version: number;
     steps: number;

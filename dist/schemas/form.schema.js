@@ -14,23 +14,19 @@ const mongoose_1 = require("@nestjs/mongoose");
 let Form = class Form {
 };
 __decorate([
-    mongoose_1.Prop(),
-    __metadata("design:type", String)
-], Form.prototype, "id", void 0);
-__decorate([
-    mongoose_1.Prop(),
+    mongoose_1.Prop({ required: true }),
     __metadata("design:type", String)
 ], Form.prototype, "name", void 0);
 __decorate([
-    mongoose_1.Prop(),
+    mongoose_1.Prop({ required: true }),
     __metadata("design:type", Number)
 ], Form.prototype, "version", void 0);
 __decorate([
-    mongoose_1.Prop(),
+    mongoose_1.Prop({ required: true }),
     __metadata("design:type", Number)
 ], Form.prototype, "steps", void 0);
 __decorate([
-    mongoose_1.Prop(),
+    mongoose_1.Prop({ required: true }),
     __metadata("design:type", String)
 ], Form.prototype, "variant", void 0);
 __decorate([
@@ -38,15 +34,15 @@ __decorate([
     __metadata("design:type", Array)
 ], Form.prototype, "hostingApps", void 0);
 __decorate([
-    mongoose_1.Prop(),
+    mongoose_1.Prop({ required: true }),
     __metadata("design:type", String)
 ], Form.prototype, "createdBy", void 0);
 __decorate([
-    mongoose_1.Prop(),
+    mongoose_1.Prop({ required: true }),
     __metadata("design:type", String)
 ], Form.prototype, "updateBy", void 0);
 __decorate([
-    mongoose_1.Prop(),
+    mongoose_1.Prop({ required: true }),
     __metadata("design:type", Date)
 ], Form.prototype, "createDate", void 0);
 __decorate([

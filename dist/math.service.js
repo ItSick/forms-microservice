@@ -10,6 +10,7 @@ exports.MathService = void 0;
 const common_1 = require("@nestjs/common");
 let MathService = class MathService {
     accumulate(data) {
+        console.log('service serve math data: ' + data + ' sum= ' + (data || []).reduce((a, b) => Number(a) + Number(b)));
         return (data || []).reduce((a, b) => Number(a) + Number(b));
     }
 };
