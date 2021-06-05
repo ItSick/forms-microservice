@@ -8,23 +8,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var __param = (this && this.__param) || function (paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FormService = void 0;
 const common_1 = require("@nestjs/common");
-const mongoose_1 = require("@nestjs/mongoose");
-const mongoose_2 = require("mongoose");
 let FormService = class FormService {
-    constructor(formModel) {
-        this.formModel = formModel;
-    }
+    constructor() { }
     async insertForm(form) {
         console.log('insert form service server');
-        const newForm = new this.formModel(form);
-        const result = await newForm.save();
-        return result;
+        console.log(JSON.stringify(form));
+        return JSON.stringify(form);
     }
     getForm(data) {
         return { res: 'Form returned!' };
@@ -32,8 +24,7 @@ let FormService = class FormService {
 };
 FormService = __decorate([
     common_1.Injectable(),
-    __param(0, mongoose_1.InjectModel('Form')),
-    __metadata("design:paramtypes", [mongoose_2.Model])
+    __metadata("design:paramtypes", [])
 ], FormService);
 exports.FormService = FormService;
 //# sourceMappingURL=form.service.js.map

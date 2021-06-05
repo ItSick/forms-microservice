@@ -1,4 +1,5 @@
-export interface Form {
+
+export default class FormModel {
    
   id: string;
   name: string;

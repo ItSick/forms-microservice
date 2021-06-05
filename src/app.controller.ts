@@ -1,18 +1,17 @@
 import { Controller, Logger, Post, Body } from '@nestjs/common';
 import { MessagePattern } from '@nestjs/microservices';
-import { AppService } from './app.service';
-import { MathService } from './math.service';
+import { FormService } from './form.service';
 
 @Controller()
 export class AppController {
   private logger = new Logger('AppController');
-  constructor(private readonly mathService: MathService) {}
+  constructor(private readonly formService: FormService) {}
 
   //Define the message pattern for this method
-  @MessagePattern('add')
+  @MessagePattern('form')
   // Define the logic to be executed 
-  async accumulate(@Body('data') data: number[]) {
-    this.logger.log('Adding '+data.toString());
-    return this.mathService.accumulate(data);
+  async insertForm(@Body('data') data: any) {
+    this.logger.log('AppController insertForm data: '+data);
+    return this.formService.insertForm(data);
   }
 }

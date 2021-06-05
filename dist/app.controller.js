@@ -15,27 +15,27 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppController = void 0;
 const common_1 = require("@nestjs/common");
 const microservices_1 = require("@nestjs/microservices");
-const math_service_1 = require("./math.service");
+const form_service_1 = require("./form.service");
 let AppController = class AppController {
-    constructor(mathService) {
-        this.mathService = mathService;
+    constructor(formService) {
+        this.formService = formService;
         this.logger = new common_1.Logger('AppController');
     }
-    async accumulate(data) {
-        this.logger.log('Adding ' + data.toString());
-        return this.mathService.accumulate(data);
+    async insertForm(data) {
+        this.logger.log('AppController insertForm data: ' + data);
+        return this.formService.insertForm(data);
     }
 };
 __decorate([
-    microservices_1.MessagePattern('add'),
+    microservices_1.MessagePattern('form'),
     __param(0, common_1.Body('data')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Array]),
+    __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
-], AppController.prototype, "accumulate", null);
+], AppController.prototype, "insertForm", null);
 AppController = __decorate([
     common_1.Controller(),
-    __metadata("design:paramtypes", [math_service_1.MathService])
+    __metadata("design:paramtypes", [form_service_1.FormService])
 ], AppController);
 exports.AppController = AppController;
 //# sourceMappingURL=app.controller.js.map
