@@ -12,28 +12,30 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.FormService = void 0;
+exports.AppController = void 0;
 const common_1 = require("@nestjs/common");
-const mongoose_1 = require("@nestjs/mongoose");
-const mongoose_2 = require("mongoose");
-let FormService = class FormService {
-    constructor(formModel) {
-        this.formModel = formModel;
+const microservices_1 = require("@nestjs/microservices");
+const form_service_1 = require("./form.service");
+let AppController = class AppController {
+    constructor(formService) {
+        this.formService = formService;
+        this.logger = new common_1.Logger('AppController');
     }
-    async insertForm(form) {
-        console.log('insert form service server');
-        const newForm = new this.formModel(form);
-        const result = await newForm.save();
-        return result;
-    }
-    getForm(data) {
-        return { res: 'Form returned!' };
+    async insertForm(data) {
+        this.logger.log('AppController insertForm data: ' + data);
+        return this.formService.insertForm(data);
     }
 };
-FormService = __decorate([
-    common_1.Injectable(),
-    __param(0, mongoose_1.InjectModel('Form')),
-    __metadata("design:paramtypes", [mongoose_2.Model])
-], FormService);
-exports.FormService = FormService;
-//# sourceMappingURL=form.service.js.map
+__decorate([
+    microservices_1.MessagePattern('form'),
+    __param(0, common_1.Body('data')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], AppController.prototype, "insertForm", null);
+AppController = __decorate([
+    common_1.Controller(),
+    __metadata("design:paramtypes", [form_service_1.FormService])
+], AppController);
+exports.AppController = AppController;
+//# sourceMappingURL=app.controller.js.map

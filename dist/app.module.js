@@ -17,9 +17,9 @@ let AppModule = class AppModule {
 };
 AppModule = __decorate([
     common_1.Module({
-        imports: [mongoose_1.MongooseModule.forRoot('mongodb://localhost:27017/local')],
+        imports: [mongoose_1.MongooseModule.forRoot('mongodb+srv://Itsik:salesmen@forms.jm15i.mongodb.net/FormsDB?retryWrites=true&w=majority')],
         controllers: [app_controller_1.AppController],
-        providers: [app_service_1.AppService, form_service_1.FormService, form_model_1.default],
+        providers: [app_service_1.AppService, form_service_1.FormService, form_model_1.FormModel],
     })
 ], AppModule);
 exports.AppModule = AppModule;

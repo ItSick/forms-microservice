@@ -1,6 +1,6 @@
 
-export  class FormModel {
-   constructor(private form){}
+export default class FormModel {
+   
   id: string;
   name: string;
   version: number;
